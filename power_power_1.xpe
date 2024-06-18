@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<POWERDATA author="Vivado Power Analysis" dataVersion="2017.4" design="polar_encoder" designState="synthesized" date="Mon Feb 12 20:05:44 2024" pwrOpt="None" activityLevel="vectorless">
+	<ENVIRONMENT>
+		<DEVICE part="xc7vx485t" grade="commercial" package="ffg1157" speed="-1" process="typical" vid="No">
+		</DEVICE>
+		<VOLTAGESOURCES>
+			<SOURCE name="Vcco18" voltage="1.800000" icc="0.015323" iccq="0.001000" power="0.029382">
+			</SOURCE>
+			<SOURCE name="Vccbram" voltage="1.000000" icc="0.000000" iccq="0.003043" power="0.003043">
+			</SOURCE>
+			<SOURCE name="Vccint" voltage="1.000000" icc="0.001644" iccq="0.134209" power="0.135853">
+			</SOURCE>
+			<SOURCE name="Vccaux" voltage="1.800000" icc="0.002641" iccq="0.037576" power="0.072390">
+			</SOURCE>
+			<SOURCE name="Vccadc" voltage="1.800000" icc="0.000000" iccq="0.020000" power="0.036000">
+			</SOURCE>
+		</VOLTAGESOURCES>
+		<THERMAL>
+			<AMBIENT value="25.000000">
+			</AMBIENT>
+			<AIRFLOW value="250.000000">
+			</AIRFLOW>
+			<HEATSINK value="medium (Medium Profile)">
+			</HEATSINK>
+			<BOARDSELECTION value="medium (10&quot;x10&quot;)">
+			</BOARDSELECTION>
+			<BOARDLAYERS value="12to15 (12 to 15 Layers)">
+			</BOARDLAYERS>
+			<TSA value="2.400000">
+			</TSA>
+			<TJB value="2.300000">
+			</TJB>
+			<BOARDTEMP value="25.0 (C)">
+			</BOARDTEMP>
+			<JUNCTION value="25.4 (C)">
+			</JUNCTION>
+		</THERMAL>
+	</ENVIRONMENT>
+	<BLOCKDETAILS>
+		<BYTYPE>
+			<BLOCKTYPE name="Clocks">
+			</BLOCKTYPE>
+			<BLOCKTYPE name="LOGIC">
+				<LOGIC clock="Unclocked_or_HFN_instance" clockFreq="142.857149" clockFreq2="142.857149" toggleRate="21.400297" toggleRate2="36.968968" totalRate="1809.939146" name="virtual_clock" hierName="polar_encoder" writeRate="0.000000" enableRate="0.000000" fanout="1.394737" ru="0.000000" fanout2="1.394737" totalFanout="53.000000" fanoutRate="1586.044075" numNets="38" extNets="38" luts="38" logicCap="17437100" signalCap="34438.843689" power="0.000276" sp="0.001257">
+				</LOGIC>
+			</BLOCKTYPE>
+			<BLOCKTYPE name="IO">
+				<MODULE name="encoded_o&lt;0:31&gt;" count="32">
+					<GROUPSUMMARY>
+						<IO name="encoded_o&lt;0:31&gt;" clock="virtual_clock" clockFreq="142.857149" ioStandard="LVCMOS18_12_SLOW" bidis="0" inputs="0" outputs="32" signalRate="53.067849" toggleRate="37.147492" outputEnableRate="1.000000" outputLoad="0.000000" dataRate="SDR" serdes="No" preEmphasis="No" ioDelay="No" ibufLowPower="No" inTerm="NONE" outTerm="RDRV_NONE_NONE" ibufDisable="0.000000" dcitermDisable="0.000000" vccInt="0.000000" vccAux="0.004754" vcco="0.027510" vccoCurrent="0.015284" extTerm="FP_VTT_50">
+						</IO>
+					</GROUPSUMMARY>
+				</MODULE>
+				<MODULE name="infor_i&lt;0:16&gt;" count="17">
+					<GROUPSUMMARY>
+						<IO name="infor_i&lt;0:16&gt;" clock="virtual_clock" clockFreq="142.857149" ioStandard="LVCMOS18" bidis="0" inputs="17" outputs="0" signalRate="17.857143" toggleRate="12.500000" dataRate="SDR" serdes="No" preEmphasis="No" ioDelay="No" ibufLowPower="No" inTerm="RTT_NONE" outTerm="NONE" ibufDisable="0.000000" dcitermDisable="0.000000" vccInt="0.000098" vccAux="0.000000" vcco="0.000072" vccoCurrent="0.000040" extTerm="NONE">
+						</IO>
+					</GROUPSUMMARY>
+				</MODULE>
+			</BLOCKTYPE>
+			<BLOCKTYPE name="IOBANK">
+				<IOBANK numInternalVref="0" numDelayControl="0" numLVDSBanks="0">
+				</IOBANK>
+			</BLOCKTYPE>
+		</BYTYPE>
+	</BLOCKDETAILS>
+</POWERDATA>
+
