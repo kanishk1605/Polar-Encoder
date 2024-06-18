@@ -41,7 +41,10 @@ Polar codes are a novel class of error-correcting codes that have shown exceptio
 Efficient algorithms for polar code generation, such as the fast Hadamard transform, are essential for the practical implementation of polar codes in 5G systems. These algorithms enable the rapid computation of the code construction parameters, allowing the polar encoder to be deployed in high-speed 5G applications. Designing the optimal polar code parameters for 5G is a complex task that requires careful consideration of the unique requirements of the 5G standard. Factors like ultra-high reliability, low latency, and high throughput must be balanced to ensure the polar code can effectively support the diverse use cases of 5G networks.
 
 ###  Objective
-	The primary objective of this research project is to develop a high-performance polar encoder architecture that can effectively address the demands of emerging 5G communication systems. Polar codes, a class of error-correcting codes, have shown great potential in providing reliable and efficient data transmission for 5G networks, which require robust and low-latency performance. By exploring the feasibility of polar codes in 5G applications, this project aims to improve the overall reliability and efficiency of 5G data transmission, ultimately contributing to the advancement of next-generation wireless technologies.
+
+The primary objective of this research project is to develop a high-performance polar encoder architecture that can effectively address the demands of emerging 5G communication systems.
+Polar codes, a class of error-correcting codes, have shown great potential in providing reliable and efficient data transmission for 5G networks, which require robust and low-latency performance.
+By exploring the feasibility of polar codes in 5G applications, this project aims to improve the overall reliability and efficiency of 5G data transmission, ultimately contributing to the advancement of next-generation wireless technologies.
  
 ## Literature Survey
 
@@ -94,8 +97,11 @@ A channel interleaver is finally applied to compute the vector f, which is now r
 
 
 RELIABILITY SEQUENCES:
+
 N = 8: 1 2 3 5 4 6 7 8
+
 N = 16: 1 2 3 5 9 4 6 10 7 11 13 8 12 14 15 16
+
 N = 32: 1 2 3 5 9 17 4 6 10 7 18 11 19 13 21 25 8 12 20 14 15 22 27 26 23 29
         16 24 28 30 31 32
 
@@ -164,6 +170,9 @@ Here are some potential areas where further research and development in this are
 ## References
 
 [1].	P. Chen, B. Bai, Z. Ren, J. Wang and S. Sun, "Hash-Polar Codes with Application to 5G," in IEEE Access, vol. 7, pp. 12441-12455, 2019.
+
 [2].	S. Shao et al., "Survey of Turbo, LDPC and Polar Decoder ASIC Implementations," in IEEE Communications Surveys & Tutorials.
+
 [3].	P. Chen, M. Xu, B. Bai and J. Wang, "Design and Performance of Polar Codes for 5G Communication under High Mobility Scenarios," 2017 IEEE 85th Vehicular Technology Conference (VTC Spring), Sydney, NSW, 2017, pp. 1-5.
+
 [4].	Arikan, E. (2009). Channel Polarization: A Method for Constructing Capacity-Achieving Codes for Symmetric Binary-Input Memoryless Channels. IEEE Transactions on Information Theory, 55(7), 3051–3073. doi:10.1109/tit.2009.2021379 
