@@ -1,4 +1,4 @@
-`include "../RTL/define.vh"
+`include "../RTL/define.vh"    
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
@@ -31,7 +31,7 @@ wire [0 : `N -1] polar_trans [`No_of_LEVELS:1];
 wire [0 : `N -1] x;
        
 // Code Starts 
-`include "../RTL/rs_32.txt"
+`include "../RTL/rs_32.txt"     // This file defines Reliability Sequence
 
 assign polar_trans[1] [0:1] = {x[0] ^ x[1],x[1]};
 assign polar_trans[1] [2:3] = {x[2] ^ x[3],x[3]};
