@@ -9,16 +9,26 @@ The result of these efforts is an elaborate framework that applies novel coding 
 
 ## Introduction
 
-	The emergence of 5G wireless technology has ushered in a new era of communication, characterized by the demand for higher data rates, lower latency, and increased reliability. At the heart of these transformative 5G advancements lies the revolutionary polar encoding scheme.
+The emergence of 5G wireless technology has ushered in a new era of communication, characterized by the demand for higher data rates, lower latency, and increased reliability.
+At the heart of these transformative 5G advancements lies the revolutionary polar encoding scheme.
 
-	Polar codes are a class of capacity-achieving codes introduced by Arıkan. In the past decade, the interest and research effort on polar codes has been constantly rising in academia and industry alike. Within the ongoing 5th generation wireless systems (5G) standardization process of the 3rd generation partnership project (3GPP), polar codes have been adopted as channel coding for uplink and downlink control information for the enhanced mobile broadband (eMBB) communication service. 5G foresees two other frameworks, namely ultra-reliable low-latency communications (URLLC) and massive machine-type communications (mMTC), for which polar codes are among the possible coding schemes.
-	The construction of a polar code involves the identification of channel reliability values associated with each bit to be encoded. This identification can be effectively performed given a code length and a specific signal-to-noise ratio. However, within the 5G framework, various code lengths, rates and channel conditions are foreseen, and having a different reliability vector for each parameter combination is unfeasible. Thus, substantial effort has been put in the design of polar codes that are easy to implement, and have low description complexity, while maintaining good error-correction performance over multiple code and channel parameters.
+Polar codes are a class of capacity-achieving codes introduced by Arıkan.In the past decade, the interest and research effort on polar codes has been constantly rising in academia and industry alike.
+Within the ongoing 5th generation wireless systems (5G) standardization process of the 3rd generation partnership project (3GPP), polar codes have been adopted as channel coding for uplink and downlink control information for the enhanced mobile broadband (eMBB) communication service.
+5G foresees two other frameworks, namely ultra-reliable low-latency communications (URLLC) and massive machine-type communications (mMTC), for which polar codes are among the possible coding schemes.
+
+The construction of a polar code involves the identification of channel reliability values associated with each bit to be encoded. This identification can be effectively performed given a code length and a specific signal-to-noise ratio.
+However, within the 5G framework, various code lengths, rates and channel conditions are foreseen, and having a different reliability vector for each parameter combination is unfeasible.
+Thus, substantial effort has been put in the design of polar codes that are easy to implement, and have low description complexity, while maintaining good error-correction performance over multiple code and channel parameters.
  
-	The majority of available literature does not take into account the specific codes designed for 5G and their encoding process; given their upcoming widespread utilization, the research community would benefit from considering them within error-correction performance evaluations and encoder/decoder designs. Both the encoding and the decoding process can incur substantial speed and complexity overhead, while the performance of decoders is tightly bound to the characteristics of the polar code. Works focusing on hardware and software implementations can effectively broaden their audience by including compliance with the 5G standard.
+The majority of available literature does not take into account the specific codes designed for 5G and their encoding process; given their upcoming widespread utilization, the research community would benefit from considering them within error-correction performance evaluations and encoder/decoder designs.
+Both the encoding and the decoding process can incur substantial speed and complexity overhead, while the performance of decoders is tightly bound to the characteristics of the polar code.
+Works focusing on hardware and software implementations can effectively broaden their audience by including compliance with the 5G standard.
 
 ![image](https://github.com/kanishk1605/Polar-Encoder/assets/105859363/3ea84812-aec0-4567-911e-7cd2884474f8)
 
-	 An industry standard is a document providing specifications for delivering a service agreed upon by a group of competing companies. This agreement allows different manufacturers to create products that are compatible with each other so that standard details are often the result of a quid pro quo among companies.
+An industry standard is a document providing specifications for delivering a service agreed upon by a group of competing companies.
+This agreement allows different manufacturers to create products that are compatible with each other so that standard details are often the result of a quid pro quo among companies.
+
 	 The outcome of the endless discussions and struggles among different agendas is a patchwork of techniques, whose mixture provides acceptable performance; for this reason, a standard usually represents the state-of-the-art of a field more than its pinnacle. In this paper, we provide a tutorial for the polar code encoding process foreseen by 5G, from the code concatenation, through interleaving functions, to the polar-code-specific subchannel allocation and rate-matching schemes.
 
 ### Background
@@ -47,9 +57,9 @@ Arikan E. et al., [4] stated in this paper that channels tend to polarize with r
 
 ###  CHANNEL POLARIZATION:
 
-	The channel polarization phenomenon, introduced in, consists of a transformation that produces N “synthetic” bit-channels from N independent copies of a binary-input discrete memoryless channel (B-DMC).
- The new synthetic channels are then “polarized” in the sense that each of them can transmit a single bit at a different reliability, i.e. with a different probability of being decoded correctly.
- If N is large enough, the mutual information of the synthetic channels is either close to 0 (completely noisy channels) or close to 1 (perfectly noiseless channels), resulting in channels of extreme capacities.
+The channel polarization phenomenon, introduced in, consists of a transformation that produces N “synthetic” bit-channels from N independent copies of a binary-input discrete memoryless channel (B-DMC).
+The new synthetic channels are then “polarized” in the sense that each of them can transmit a single bit at a different reliability, i.e. with a different probability of being decoded correctly.
+If N is large enough, the mutual information of the synthetic channels is either close to 0 (completely noisy channels) or close to 1 (perfectly noiseless channels), resulting in channels of extreme capacities.
  
 Polar codes provide a low- complexity scheme to construct polarized channels, where the fraction of noiseless channels tends to the capacity of the original B-DMC.
 The mathematical foundations of polar codes lie in the discovery of the polarization phenomenon of matrix G2 = [ 1 0 1 1], also known as the basic polarization kernel.
@@ -66,21 +76,21 @@ Fig: Virtual Bit-Channels Capacities Over A BEC 1/2.
 
 ###  POLAR CODE ENCODING IN 5G:
 
-	In the following, the notation introduced in the 3GPP technical specification will be used. Polar codes are used to encode the uplink control information (UCI) over the physical uplink control channel (PUCCH) and the physical uplink shared channel (PUSCH).
- In the downlink, polar codes are used to encode the downlink control information (DCI) over the physical downlink control channel (PDCCH), and the payload in the physical broadcast channel (PBCH).
+In the following, the notation introduced in the 3GPP technical specification will be used. Polar codes are used to encode the uplink control information (UCI) over the physical uplink control channel (PUCCH) and the physical uplink shared channel (PUSCH).
+In the downlink, polar codes are used to encode the downlink control information (DCI) over the physical downlink control channel (PDCCH), and the payload in the physical broadcast channel (PBCH).
  
-	In 5G applications, the number of information bits, A, is fixed and a codeword of length E is created to achieve the desired rate R = A/E required by upper communication layers.
- To accommodate polar codes to this requirement, a mother polar code of length N = 2n is initially constructed, and the desired code length E is matched via puncturing, shortening or repetition.
- The mother code length N is lower bounded by Nmin = 32, while the value of the upper bound Nmax depends on the channel used, being Nmax = 512 for downlink and Nmax = 1024 for uplink.
- 
-	It portrays the set of encoding operations envisaged by the 5G polar codes framework. Vector a contains the A information bits to be transmitted using a payload of G code bits.
- Depending on code parameters, the message may be split and segmented into two parts, which are encoded separately and transmitted together.
- For each segmented vector, a 0 of length A0 will be encoded into an E-bit polar codeword. To every A0-bit vector, an L-bit CRC is attached. The resulting vector c, constituted of K = A0 + L bits, is passed through an interleaved.
- Based on the desired code rate R and codeword length E, a mother polar code of length N is designed, along with the relative bit channel reliability sequence and frozen set.
- The interleaved vector c 0 is assigned to the information set along with possible parity-check bits, while the remaining bits in the N-bit u vector are frozen.
- Vector u is then encoded as d = u·GN, where GN = G2 ⊗ n is the generator matrix for the selected mother code. 
- After encoding, a sub-block interleaver divides d into 32 equal-length blocks, scrambles them and creates y, which is fed into the circular buffer. For rate matching, puncturing, shortening or repetition are applied to change the N-bit vector y into the E-bit vector e.
- A channel interleaver is finally applied to compute the vector f, which is now ready to be modulated and transmitted as g after concatenation if required.
+In 5G applications, the number of information bits, A, is fixed and a codeword of length E is created to achieve the desired rate R = A/E required by upper communication layers.
+To accommodate polar codes to this requirement, a mother polar code of length N = 2n is initially constructed, and the desired code length E is matched via puncturing, shortening or repetition.
+The mother code length N is lower bounded by Nmin = 32, while the value of the upper bound Nmax depends on the channel used, being Nmax = 512 for downlink and Nmax = 1024 for uplink.
+
+It portrays the set of encoding operations envisaged by the 5G polar codes framework. Vector a contains the A information bits to be transmitted using a payload of G code bits.
+Depending on code parameters, the message may be split and segmented into two parts, which are encoded separately and transmitted together.
+For each segmented vector, a 0 of length A0 will be encoded into an E-bit polar codeword. To every A0-bit vector, an L-bit CRC is attached. The resulting vector c, constituted of K = A0 + L bits, is passed through an interleaved.
+Based on the desired code rate R and codeword length E, a mother polar code of length N is designed, along with the relative bit channel reliability sequence and frozen set.
+The interleaved vector c 0 is assigned to the information set along with possible parity-check bits, while the remaining bits in the N-bit u vector are frozen.
+Vector u is then encoded as d = u·GN, where GN = G2 ⊗ n is the generator matrix for the selected mother code. 
+After encoding, a sub-block interleaver divides d into 32 equal-length blocks, scrambles them and creates y, which is fed into the circular buffer. For rate matching, puncturing, shortening or repetition are applied to change the N-bit vector y into the E-bit vector e.
+A channel interleaver is finally applied to compute the vector f, which is now ready to be modulated and transmitted as g after concatenation if required.
 
 
 RELIABILITY SEQUENCES:
@@ -93,14 +103,14 @@ N = 32: 1 2 3 5 9 17 4 6 10 7 18 11 19 13 21 25 8 12 20 14 15 22 27 26 23 29
 
 ###  FROZEN SET DESIGN:
 
-	In polar coding, to transmit at rate R = K∕N, select the K best channels to transmit information and “freeze” the remaining N − K bits to 0.
- The generator matrix can be concatenated by using the Kronecker product of the kernel. A binary tree representation is used for this transform.
- For larger transforms this representation is very useful in encoding and decoding. The inputs are given to the leaf nodes and they are connected to the main node which gives the output.
- Here the sum of nodes is taken as the mod-2 addition or XOR operation.
+In polar coding, to transmit at rate R = K∕N, select the K best channels to transmit information and “freeze” the remaining N − K bits to 0.
+The generator matrix can be concatenated by using the Kronecker product of the kernel. A binary tree representation is used for this transform.
+For larger transforms this representation is very useful in encoding and decoding. The inputs are given to the leaf nodes and they are connected to the main node which gives the output.
+Here the sum of nodes is taken as the mod-2 addition or XOR operation.
 
-	In general, the reliability order of the bit-channels depends on the channel condition and the code length and therefore is not universal. s.
- The density evolution (DE) method, initially proposed and improved, can provide theoretical guarantees on the estimation accuracy, however at a high computational cost.
- Recent studies on the partial reliability order imposed by the polarization effect on bit channels opened new opportunities in the generation of a universal reliability sequence to be used independently on channel conditions.
+In general, the reliability order of the bit-channels depends on the channel condition and the code length and therefore is not universal. s.
+The density evolution (DE) method, initially proposed and improved, can provide theoretical guarantees on the estimation accuracy, however at a high computational cost.
+Recent studies on the partial reliability order imposed by the polarization effect on bit channels opened new opportunities in the generation of a universal reliability sequence to be used independently on channel conditions.
 This sequence, composed of 1024 bit-channel indices sorted in reliability order, can be used regardless of the channel conditions to design the frozen set of any polar code of length smaller or equal to 1024:
 it is possible to extract sub-sequences for shorter codes directly from the universal reliability sequence, hence reducing the sequence storing space. This nested reliability structure represents a real breakthrough in polar code design, and it is probably the most lasting legacy of the standardization process.
 This impressive result has been achieved by taking into account also distance properties in short polar code design the use of list decoders and the presence of assistant bits in the code.
@@ -112,7 +122,7 @@ Fig: An Example of Polar Code Graph (K = 4 To N = 8)
 
 ## Advantages
 
-There are several advantages of the design of polar codes in 5G New Radio, including:
+ There are several advantages of the design of polar codes in 5G New Radio, including:
  
 1.	Excellent Error-Correction Performance: Polar codes have been shown to provide superior error-correction performance compared to other coding schemes, especially in low signal-to-noise ratio (SNR) environments. This makes them well-suited for use in 5G NR, which requires reliable communication in harsh environments with high interference and noise.
 2.	Low Latency: Polar codes have a low encoding and decoding complexity, which means they can be implemented with low latency. This is critical for real-time applications, such as autonomous vehicles and virtual reality, where low latency is essential for ensuring safe and effective operation.
@@ -123,7 +133,7 @@ There are several advantages of the design of polar codes in 5G New Radio, inclu
 
 ## Applications
 
-Polar codes are a powerful coding scheme that has gained significant attention in the context of 5G New Radio (NR) due to their excellent error-correction performance and low latency.
+ Polar codes are a powerful coding scheme that has gained significant attention in the context of 5G New Radio (NR) due to their excellent error-correction performance and low latency.
 Here are some applications of the design of polar codes in 5G NR:
 
 1.	**5G Wireless Communication:** The primary application of polar codes is in 5G wireless communication, where they are used to encode the data transmitted over the airwaves. Polar codes are particularly useful in 5G NR because of their ability to provide reliable communication in harsh environments, such as those with high interference and noise.
@@ -131,16 +141,17 @@ Here are some applications of the design of polar codes in 5G NR:
 3.	**Autonomous Vehicles:** The use of polar codes in autonomous vehicles is another potential application. These vehicles rely heavily on communication networks to transmit data, such as sensor data and mapping information, in real time. 
 4.	**Edge Computing:** The use of polar codes in edge computing can help ensure reliable communication between edge devices and the cloud. This is particularly important in 5G NR, where edge computing is expected to play a significant role in enabling low-latency applications, such as virtual and augmented reality.
    
-	Overall, the design of polar codes in 5G NR has numerous potential applications, from wireless communication to IoT, autonomous vehicles, and edge computing. As the deployment of 5G networks continues to expand, polar codes are likely to play an increasingly important role in ensuring reliable and low-latency communication.
+Overall, the design of polar codes in 5G NR has numerous potential applications, from wireless communication to IoT, autonomous vehicles, and edge computing. As the deployment of 5G networks continues to expand, polar codes are likely to play an increasingly important role in ensuring reliable and low-latency communication.
 
 ## Conclusion
 
-	In this work, we have detailed the polar code encoding process within the 5th generation wireless systems standard, providing the reader with a user-friendly description to understand, implement and simulate 5G-compliant polar code encoding.
+In this work, we have detailed the polar code encoding process within the 5th generation wireless systems standard, providing the reader with a user-friendly description to understand, implement and simulate 5G-compliant polar code encoding.
 This encoding chain showcases the successful efforts to meet the various requirements of the code for the eMBB control channel: low description complexity and low encoding complexity while covering a wide range of code lengths and code rates.
 
 ## Future Scope
 
-	The design of Polar Codes in 5G New Radio has a promising future scope in modern communication systems. Here are some potential areas where further research and development in this area may lead to significant improvements:
+The design of Polar Codes in 5G New Radio has a promising future scope in modern communication systems.
+Here are some potential areas where further research and development in this area may lead to significant improvements:
  
 1.	**LOW-LATENCY COMMUNICATION:** The design of Polar Codes in 5G NR has already shown excellent potential for low-latency communication. Further research can explore ways to optimize the Polar Code design for even lower latency in applications such as autonomous vehicles, remote surgery, and other time-critical systems.
 2.	**HIGH-SPEED COMMUNICATION:** With the ever-increasing demand for high-speed data transfer, the design of Polar Codes can be further optimized to support higher data rates. This can include exploring new code rates, code lengths, and construction methods that can support even higher data rates.
