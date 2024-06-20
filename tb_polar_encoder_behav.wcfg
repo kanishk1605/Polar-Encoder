@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_polar_encoder_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_polar_encoder" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="174.801 ns"></ZoomEndTime>
+      <Cursor1Time time="15.800 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="168"></NameColumnWidth>
+      <ValueColumnWidth column_width="108"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="7" />
+   <wvobject fp_name="/tb_polar_encoder/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_polar_encoder/INFORMATION_IN" type="array">
+      <obj_property name="ElementShortName">INFORMATION_IN[0:31]</obj_property>
+      <obj_property name="ObjectShortName">INFORMATION_IN[0:31]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_polar_encoder/ENCODED_OUT" type="array">
+      <obj_property name="ElementShortName">ENCODED_OUT[0:31]</obj_property>
+      <obj_property name="ObjectShortName">ENCODED_OUT[0:31]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_polar_encoder/POLAR_ENC/infor_i" type="array">
+      <obj_property name="ElementShortName">infor_i[0:31]</obj_property>
+      <obj_property name="ObjectShortName">infor_i[0:31]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_polar_encoder/POLAR_ENC/encoded_o" type="array">
+      <obj_property name="ElementShortName">encoded_o[0:31]</obj_property>
+      <obj_property name="ObjectShortName">encoded_o[0:31]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_polar_encoder/POLAR_ENC/polar_trans" type="array">
+      <obj_property name="ElementShortName">polar_trans[5:1][0:31]</obj_property>
+      <obj_property name="ObjectShortName">polar_trans[5:1][0:31]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_polar_encoder/POLAR_ENC/x" type="array">
+      <obj_property name="ElementShortName">x[0:31]</obj_property>
+      <obj_property name="ObjectShortName">x[0:31]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+</wave_config>
